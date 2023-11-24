@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // подсказывает, где не указан тип
+    "noImplicitAny": true,
+    "module": "es6",
+    // для поддержки старых браузеров
+    "target": "es5",
+    "jsx": "react",
+    // позволяет обращаться к файлам с расширением .js
+    "allowJs": true,
+    // определяет, каким образом будет происходить поиск модулей
+    "moduleResolution": "node",
+    // позволяет использовать import без расширения файла
+    "esModuleInterop": true,
+    // если какая-то библиотека не поддерживает импорт через import, то можно использовать require
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
