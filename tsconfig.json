@@ -14,7 +14,8 @@
     // позволяет использовать import без расширения файла
     "esModuleInterop": true,
     // если какая-то библиотека не поддерживает импорт через import, то можно использовать require
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "."
   },
   "ts-node": {
     "compilerOptions": {
