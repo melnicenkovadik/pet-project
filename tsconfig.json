@@ -15,7 +15,7 @@
     "esModuleInterop": true,
     // если какая-то библиотека не поддерживает импорт через import, то можно использовать require
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
+//    "baseUrl": "."
   },
   "ts-node": {
     "compilerOptions": {
