@@ -10,7 +10,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         port: options.port,
         // hot: true,
         open: true,
-        // historyApiFallback: true,
+        historyApiFallback: true,
         // overlay: true,
         // stats: "errors-only",
         // clientLogLevel: "silent",
