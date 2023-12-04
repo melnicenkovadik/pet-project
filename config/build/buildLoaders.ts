@@ -3,35 +3,54 @@ import type {RuleSetRule} from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BuildOptions} from "./types/config";
 
-export function buildLoaders({isDev}:BuildOptions): RuleSetRule[] {
+export function buildLoaders({isDev}: BuildOptions): RuleSetRule[] {
     // Если мы используем ts-loader, то нам не нужен babel-loader
     // для транспиляции tsx в js (т.к. ts-loader это делает)
-    const tsLoader: webpack.RuleSetRule = {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: "/node_modules/"
-    };
-    const sassLoader: webpack.RuleSetRule =   {
-            test: /\.s[ac]ss$/i,
-            use: [
-                // Creates `style` nodes from JS strings
-                isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-                // Translates CSS into CommonJS
-                {
-                    loader: "css-loader",
-                    options: {
-                        modules: {
-                            localIdentName: isDev ? "[path]==[local]==[hash:base64:5]" : "[hash:base64:5]",
-                            auto: (resPath:string) => Boolean(resPath.endsWith(".module.scss")),
-                        },
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack']
+    }
+
+    const cssLoader = {
+        test: /\.s[ac]ss$/i,
+        use: [
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+                loader: "css-loader",
+                options: {
+                    modules: {
+                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+                        localIdentName: isDev
+                            ? '[path][name]__[local]--[hash:base64:5]'
+                            : '[hash:base64:8]'
                     },
-                },
-                // Compiles Sass to CSS
-                "sass-loader",
-            ],
-        }
+                }
+            },
+            "sass-loader",
+        ],
+    }
+
+    // Если не используем тайпскрипт - нужен babel-loader
+    const typescriptLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    }
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+            {
+                loader: 'file-loader'
+            }
+        ]
+    }
+
     return [
-        tsLoader,
-        sassLoader
+        fileLoader,
+        svgLoader,
+        typescriptLoader,
+        cssLoader,
     ];
 }

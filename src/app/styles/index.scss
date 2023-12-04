@@ -4,10 +4,14 @@
 @import "themes/dark";
 
 .app {
-    font: var(--font-m);
+  font: var(--font-m);
 
-    background: var(--bg-color);
-    color: var(--primary-color);
+  background: var(--bg-color);
+  color: var(--primary-color);
 
-    min-height: 100vh;
+  min-height: 100vh;
+
+  *,*::before,*::after {
+    transition: color 1s ease, background 1s ease, fill 1s ease;
+  }
 }

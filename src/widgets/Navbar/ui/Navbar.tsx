@@ -3,6 +3,7 @@ import {cn} from "shared/lib/classNames/classNames";
 import {AppLink} from "shared/ui/AppLink";
 import s from "./Navbar.module.scss";
 import {AppLinkTheme} from "shared/ui/AppLink/AppLink";
+import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 
 interface NavbarProps {
     className?: string;
@@ -13,6 +14,7 @@ const Navbar: FC<NavbarProps> = (props) => {
 
     return (
         <div className={cn(s.navbar, props?.className)}>
+            <ThemeSwitcher/>
             <div className={cn(s.links)}>
                 <AppLink theme={AppLinkTheme.SECONDARY} to={"/"}>
                     Главная
