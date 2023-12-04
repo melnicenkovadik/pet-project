@@ -8,12 +8,12 @@ const AppRouter = () => (
             {
                 routeConfigArray.map(({element, path, ...props}) => {
                         return (
-                            <Route
-                                key={path}
-                                path={path}
-                                element={element}
-                                {...props}
-                            />
+                                <Route
+                                    key={path}
+                                    path={path}
+                                    element={<div className="page-wrapper">{element}</div>}
+                                    {...props}
+                                />
                         );
                     }
                 )

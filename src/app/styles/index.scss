@@ -3,6 +3,9 @@
 @import "themes/normal";
 @import "themes/dark";
 
+body {
+    transition: color 0.3s ease, background 0.3s ease, fill 0.3s ease;
+}
 .app {
   font: var(--font-m);
 
@@ -11,7 +14,14 @@
 
   min-height: 100vh;
 
-  *,*::before,*::after {
-    transition: color 1s ease, background 1s ease, fill 1s ease;
-  }
+}
+
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }
