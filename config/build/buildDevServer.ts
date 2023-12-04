@@ -8,7 +8,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         // contentBase: paths.build,
         // compress: true,
         port: options.port,
-        // hot: true,
+        hot: true,
         open: true,
         historyApiFallback: true,
         // overlay: true,
