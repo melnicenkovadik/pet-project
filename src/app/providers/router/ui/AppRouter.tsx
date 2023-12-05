@@ -3,15 +3,19 @@ import { Route, Routes } from 'react-router-dom';
 import { routeConfigArray } from 'shared/config/routeConfig/route.config';
 
 const AppRouter = () => (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback="">
         <Routes>
             {
-                routeConfigArray.map(({ element, ...props }) => (
+                routeConfigArray.map(({
+                    element,
+                    path,
+                    ...otherProps
+                }) => (
                     <Route
-                        key={props.path}
-                        path={props.path}
+                        key={path}
+                        path={path}
                         element={<div className="page-wrapper">{element}</div>}
-                        {...props}
+                        {...otherProps}
                     />
                 ))
             }
