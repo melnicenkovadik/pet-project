@@ -6,22 +6,19 @@
 body {
     transition: color 0.3s ease, background 0.3s ease, fill 0.3s ease;
 }
+
 .app {
-  font: var(--font-m);
-
-  background: var(--bg-color);
-  color: var(--primary-color);
-
-  min-height: 100vh;
-
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
 }
 
-
 .content-page {
-  display: flex;
+    display: flex;
 }
 
 .page-wrapper {
-  flex-grow: 1;
-  padding: 20px;
+    flex-grow: 1;
+    padding: 20px;
 }

@@ -1,0 +1,17 @@
+.LangSwitcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &::after {
+        display: block;
+        width: 0;
+        content: "";
+        height: 2px;
+        background-color: #fff;
+        transition: width 0.3s;
+    }
+}

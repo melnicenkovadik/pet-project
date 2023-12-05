@@ -23,7 +23,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <Button
                 onClick={onToggle}
                 theme={ThemeButton.CLEAR}
-                className={cn(cls.toggleButtonWrapper, { [cls.toggleButtonWrapper_collapsed]: collapsed })}
+                className={cn(
+                    cls.toggleButtonWrapper,
+                    { [cls.toggleButtonWrapper_collapsed]: collapsed },
+                )}
             >
                 <span className={cls.toggle}>
                     <span className={cls.toggle__line} />

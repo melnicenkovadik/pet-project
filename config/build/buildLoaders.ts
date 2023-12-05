@@ -1,11 +1,8 @@
-import type { RuleSetRule } from 'webpack';
+import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
-export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
-    // Если мы используем ts-loader, то нам не нужен babel-loader
-    // для транспиляции tsx в js (т.к. ts-loader это делает)
-
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
@@ -18,6 +15,15 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
             },
         },
     };

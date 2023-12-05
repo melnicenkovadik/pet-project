@@ -22,7 +22,11 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
             onClick={changeLanguage}
         >
             {
-                i18n.language === 'ru' ? <img src="https://flagcdn.com/24x18/ru.png" alt="ru" /> : <img src="https://flagcdn.com/24x18/gb.png" alt="en" />
+                i18n.language === 'ru'
+                    // eslint-disable-next-line i18next/no-literal-string
+                    ? <img src="https://flagcdn.com/24x18/ru.png" alt="ru" />
+                    // eslint-disable-next-line i18next/no-literal-string
+                    : <img src="https://flagcdn.com/24x18/gb.png" alt="en" />
             }
         </Button>
     );
