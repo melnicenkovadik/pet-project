@@ -1,4 +1,4 @@
-import { cn } from './classNames';
+import { cn } from 'shared/lib/classNames/classNames';
 
 describe('cn', () => {
     test('should return empty string', () => {
@@ -14,6 +14,10 @@ describe('cn', () => {
     });
 
     test('should return mods with array values', () => {
-        expect(cn({ active: true, disabled: false }, 'active', ['disabled'])).toBe('active active disabled');
+        expect(cn(
+            { active: true, disabled: false },
+            'active',
+            ['disabled'],
+        )).toBe('active active disabled');
     });
 });

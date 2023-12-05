@@ -12,9 +12,10 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = (props) => {
+    const { className } = props;
     const { t } = useTranslation();
     return (
-        <div className={cn(s.navbar, props?.className)}>
+        <div className={cn(s.navbar, [className])}>
             <div className={cn(s.links)}>
                 <AppLink theme={AppLinkTheme.SECONDARY} to={routeConfig.main.path}>
                     {t('mainPage')}
