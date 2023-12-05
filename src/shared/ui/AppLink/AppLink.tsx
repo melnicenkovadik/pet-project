@@ -11,7 +11,7 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps {
     className?: string;
-    children?: ReactNode | ReactNode[];
+    children: ReactNode | ReactNode[];
     to: string;
     theme?: AppLinkTheme;
 }
