@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
 import App from './app/App';
 
@@ -10,11 +11,13 @@ import 'app/styles/index.scss';
 
 render(
     <BrowserRouter>
-        <ThemeProvider>
-            <Suspense fallback="">
-                <App />
-            </Suspense>
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <Suspense fallback="">
+                    <App />
+                </Suspense>
+            </ThemeProvider>
+        </ErrorBoundary>
     </BrowserRouter>,
     document.getElementById('root'),
 );

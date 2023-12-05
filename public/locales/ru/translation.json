@@ -2,5 +2,8 @@
   "translate": "Перевод",
   "mainPage": "Главная страница",
   "aboutPage": "О нас",
-  "english": "Русский"
+  "english": "Русский",
+  "somethingWrong": "Произошла непредвиденная ошибка",
+  "refreshPage": "Обновить страницу",
+  "pageNotFound": "Страница не найдена"
 }
