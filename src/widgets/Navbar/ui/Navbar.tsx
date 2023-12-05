@@ -27,4 +27,3 @@ export const Navbar: FC<NavbarProps> = (props) => {
         </div>
     );
 };
-
