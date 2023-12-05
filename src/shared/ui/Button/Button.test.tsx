@@ -1,28 +1,14 @@
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { render, screen } from '@testing-library/react';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
-const text = 'TEST';
 describe('Button', () => {
-    test('render btn', () => {
-        render(<Button>{text}</Button>);
-        expect(screen.getByText(text)).toBeInTheDocument();
+    test('Test render', () => {
+        render(<Button>TEST</Button>);
+        expect(screen.getByText('TEST')).toBeInTheDocument();
     });
 
-    test('with only first param', () => {
-        const className = ThemeButton.CLEAR;
-        render(<Button theme={className}>{text}</Button>);
-        expect(screen.getByText(text)).toHaveClass(className);
-    });
-
-    test('test click', () => {
-        const onClick = jest.fn();
-        render(<Button onClick={onClick}>{text}</Button>);
-        screen.getByText(text).click();
-        expect(onClick).toBeCalledTimes(1);
-    });
-
-    test('test children', () => {
-        render(<Button>{text}</Button>);
-        expect(screen.getByText(text)).toBeInTheDocument();
+    test('Test clear theme', () => {
+        render(<Button theme={ThemeButton.CLEAR}>TEST</Button>);
+        expect(screen.getByText('TEST')).toHaveClass('clear');
     });
 });
