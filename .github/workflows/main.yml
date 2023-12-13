@@ -1,9 +1,9 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main,dev ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main,dev ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -17,17 +17,22 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: ==== Install node modules ====
+      - name: install modules
         run: npm install
-      - name: ==== Build production project ====
+      - name: build production project
         run: npm run build:prod
-      - name: ==== Linting typescript ====
+        if: always()
+      - name: linting typescript
         run: npm run lint:ts
-      - name: ==== Linting css ====
+        if: always()
+      - name: linting css
         run: npm run lint:scss
-      - name: ==== Unit testing run ====
+      - name: unit testing
+        if: always()
         run: npm run test:unit
-      - name: ==== Build storybook ====
+      - name: build storybook
         run: npm run storybook:build
-      - name: ==== Screenshot testing ====
+        if: always()
+      - name: screenshot testing
         run: npm run test:ui:ci
+        if: always()
