@@ -40,10 +40,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     { [cls.toggleButtonWrapper_collapsed]: collapsed },
                 )}
             >
-                <span className={cls.toggle}>
-                    <span className={cls.toggle__line} />
-                    <span className={cls.toggle__line} />
-                </span>
+                {/* <span className={cls.toggle}> */}
+                {/*     <span className={cls.toggle__line} /> */}
+                {/*     <span className={cls.toggle__line} /> */}
+                {/* </span> */}
             </Button>
             <div className={cls.items}>
                 <AppLink
