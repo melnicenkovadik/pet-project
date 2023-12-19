@@ -9,6 +9,7 @@ import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import { useTranslation } from 'react-i18next';
 import cls from './Sidebar.module.scss';
+import { Counter } from 'entities/Counter';
 
 interface SidebarProps {
     className?: string;
@@ -40,10 +41,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     { [cls.toggleButtonWrapper_collapsed]: collapsed },
                 )}
             >
-                {/* <span className={cls.toggle}> */}
-                {/*     <span className={cls.toggle__line} /> */}
-                {/*     <span className={cls.toggle__line} /> */}
-                {/* </span> */}
+                <span className={cls.toggle}>
+                    <span className={cls.toggle__line} />
+                    <span className={cls.toggle__line} />
+                </span>
             </Button>
             <div className={cls.items}>
                 <AppLink

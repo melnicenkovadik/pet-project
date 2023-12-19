@@ -1,6 +1,8 @@
 {
   "AboutUs": "AboutUs",
   "aboutPage": "aboutPage",
+  "decrement": "decrement",
+  "increment": "increment",
   "mainPage": "mainPage",
   "modalBtnCancel": "modalBtnCancel",
   "modalBtnOk": "modalBtnOk",
