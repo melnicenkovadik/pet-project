@@ -38,16 +38,16 @@ export const Navbar: FC<NavbarProps> = (props) => {
                         </div>
                         <div className={cn(s.modalBtns)}>
                             <Button
-                                theme={ThemeButton.CLEAR}
+                                theme={ThemeButton.OUTLINE}
                                 onClick={onCloseModal}
                             >
-                                {t('modalBtnOk')}
+                                {t('ok')}
                             </Button>
                             <Button
                                 theme={ThemeButton.OUTLINE}
                                 onClick={onCloseModal}
                             >
-                                {t('modalBtnCancel')}
+                                {t('cancel')}
                             </Button>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
                     theme={ThemeButton.CLEAR_INVERTED}
                     onClick={onCloseModal}
                 >
-                    {t('openModal')}
+                    {t('enter')}
                 </Button>
             </div>
         </div>

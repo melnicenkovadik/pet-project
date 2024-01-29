@@ -5,5 +5,8 @@
   "english": "English",
   "somethingWrong": "Something went wrong",
   "refreshPage": "Refresh page",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "enter": "Enter",
+  "ok":  "Ok",
+  "cancel":"Cancel"
 }
