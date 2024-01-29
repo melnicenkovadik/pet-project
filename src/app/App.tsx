@@ -7,7 +7,7 @@ import { Sidebar } from 'widgets/Sidebar';
 const App = () => {
     const { theme } = useTheme();
     return (
-        <div className={cn('app', theme)}>
+        <div className={cn('app')}>
             <Navbar />
             <div className="content-page">
                 <Sidebar />
