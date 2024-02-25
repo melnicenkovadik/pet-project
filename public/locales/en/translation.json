@@ -6,7 +6,10 @@
   "somethingWrong": "Something went wrong",
   "refreshPage": "Refresh page",
   "pageNotFound": "Page not found",
-  "enter": "Enter",
-  "ok":  "Ok",
-  "cancel":"Cancel"
+  "enter": "Login",
+  "ok": "Ok",
+  "cancel": "Cancel",
+  "enterUsername": "Enter username",
+  "enterPassword": "Enter password",
+  "login": "Login"
 }

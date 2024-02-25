@@ -6,7 +6,6 @@ const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
-server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
@@ -43,12 +42,13 @@ server.post('/login', (req, res) => {
 // eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
-        return res.status(403).json({ message: 'AUTH ERROR' });
+        return res.status(403).json({ message: 'Unauthorized' });
     }
 
     next();
 });
 
+server.use(jsonServer.defaults({}));
 server.use(router);
 
 // запуск сервера

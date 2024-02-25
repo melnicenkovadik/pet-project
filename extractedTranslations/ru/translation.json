@@ -4,7 +4,10 @@
   "cancel": "cancel",
   "decrement": "decrement",
   "enter": "enter",
+  "enterPassword": "enterPassword",
+  "enterUsername": "enterUsername",
   "increment": "increment",
+  "login": "login",
   "mainPage": "mainPage",
   "modalBtnCancel": "modalBtnCancel",
   "modalBtnOk": "modalBtnOk",
@@ -17,6 +20,9 @@
   "somethingWrong": "somethingWrong",
   "throw error": "throw error",
   "title": "title",
+  "Введите username": "Введите username",
+  "Введите пароль": "Введите пароль",
+  "Войти": "Войти",
   "Главная": "Главная",
   "О сайте": "О сайте"
 }

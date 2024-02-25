@@ -8,5 +8,8 @@
   "pageNotFound": "Страница не найдена",
   "enter": "Войти",
   "ok": "ОК",
-  "cancel":"Отмена",
+  "cancel": "Отмена",
+  "enterUsername": "Введите имя пользователя",
+  "enterPassword": "Введите пароль",
+  "login": "Войти"
 }
