@@ -8,8 +8,8 @@ import { RoutePath } from 'shared/config/routeConfig/route.config';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import { useTranslation } from 'react-i18next';
-import cls from './Sidebar.module.scss';
 import { Counter } from 'entities/Counter';
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;

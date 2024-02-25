@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { routeConfig } from 'shared/config/routeConfig/route.config';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import s from './Navbar.module.scss';
 import { LoginModal } from 'features/AuthByUsername';
+import s from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;

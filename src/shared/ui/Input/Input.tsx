@@ -58,7 +58,9 @@ export const Input = memo((props: InputProps) => {
             const allSymbolsWidth = calcSymbolWidthInPx(inputVal);
             const caretPosition = allSymbolsWidth + currentSymbolWidth;
             const inputWidth = input.offsetWidth;
-            const caretPositionValue = (inputWidth - 10) < caretPosition ? inputWidth : caretPosition - 10;
+            const caretPositionValue = (inputWidth - 10) < caretPosition
+                ? inputWidth
+                : caretPosition - 10;
             setCaretPosition(input.value.length !== 0 ? caretPositionValue : 0);
         }
     };
@@ -79,7 +81,9 @@ export const Input = memo((props: InputProps) => {
             const symbolsBeforeCursor = inputVal.slice(0, cursorPos);
             const currentSymbolWidth = calcSymbolWidthInPx(symbolsBeforeCursor);
             const inputWidth = input.offsetWidth;
-            const caretPositionValue = (inputWidth) < currentSymbolWidth ? inputWidth : currentSymbolWidth;
+            const caretPositionValue = (inputWidth) < currentSymbolWidth
+                ? inputWidth
+                : currentSymbolWidth;
             setCaretPosition(input.value.length !== 0 ? caretPositionValue : 0);
         }
     };
@@ -88,7 +92,9 @@ export const Input = memo((props: InputProps) => {
         <div className={cn(cls.InputWrapper, {}, [className])}>
             {placeholder && (
                 <div className={cls.placeholder}>
-                    {placeholder} <span>{'>'}</span>
+                    {placeholder}
+                    {' '}
+                    <span>{'>'}</span>
                 </div>
             )}
             <div className={cls.caretWrapper}>
