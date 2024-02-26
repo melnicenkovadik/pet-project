@@ -1,5 +1,5 @@
 import { cn } from 'shared/lib/classNames/classNames';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
@@ -8,7 +8,6 @@ import { RoutePath } from 'shared/config/routeConfig/route.config';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import { useTranslation } from 'react-i18next';
-import { Counter } from 'entities/Counter';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
