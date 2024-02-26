@@ -11,6 +11,7 @@ interface InputProps extends HTMLInputProps {
     value?: string;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    disabled?: boolean;
 }
 
 function calcSymbolWidthInPx(symbol: string) {
@@ -91,13 +92,27 @@ export const Input = memo((props: InputProps) => {
     return (
         <div className={cn(cls.InputWrapper, {}, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>
+                <div
+                    className={
+                        cn(cls.placeholder, {
+                            [cls.placeholderFocused]: isFocused,
+                            [cls.placeholderWithValue]: value !== '',
+                            [cls.placeholderDisabled]: otherProps.disabled,
+                        })
+                    }
+                >
                     {placeholder}
                     {' '}
                     <span>{'>'}</span>
                 </div>
             )}
-            <div className={cls.caretWrapper}>
+            <div className={
+                cn(cls.inputWrapper, {
+                    [cls.inputWrapperFocused]: isFocused,
+                    [cls.inputWrapperDisabled]: otherProps.disabled,
+                })
+            }
+            >
                 <input
                     ref={ref}
                     type={type}

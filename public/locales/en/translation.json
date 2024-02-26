@@ -7,9 +7,17 @@
   "refreshPage": "Refresh page",
   "pageNotFound": "Page not found",
   "enter": "Login",
+  "exit": "Logout",
   "ok": "Ok",
   "cancel": "Cancel",
   "enterUsername": "Enter username",
   "enterPassword": "Enter password",
-  "login": "Login"
+  "authForm": {
+    "title": "Authorization",
+    "username": "Username",
+    "password": "Password",
+    "login": "Login",
+    "error": "You entered an incorrect login or password",
+    "success": "Authorization was successful"
+  }
 }

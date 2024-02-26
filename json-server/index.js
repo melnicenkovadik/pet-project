@@ -11,6 +11,7 @@ server.use(jsonServer.bodyParser);
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
     await new Promise((res) => {
+        console.log('waiting...');
         setTimeout(res, 800);
     });
     next();
@@ -18,6 +19,7 @@ server.use(async (req, res, next) => {
 
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
+    console.log('/login', req.body);
     try {
         const { username, password } = req.body;
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
@@ -29,6 +31,8 @@ server.post('/login', (req, res) => {
 
         if (userFromBd) {
             return res.json(userFromBd);
+        } else {
+            return res.status(403).json({ message: 'User not found' });
         }
 
         return res.status(403).json({ message: 'User not found' });
@@ -41,9 +45,9 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
-    if (!req.headers.authorization) {
-        return res.status(403).json({ message: 'Unauthorized' });
-    }
+    // if (!req.headers.authorization) {
+    //     return res.status(403).json({ message: 'AUTH ERROR' });
+    // }
 
     next();
 });

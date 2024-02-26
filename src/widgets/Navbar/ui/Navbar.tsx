@@ -1,12 +1,11 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { cn } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
-import { routeConfig } from 'shared/config/routeConfig/route.config';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthData } from 'entities/User/model/selectors/getAuthData';
+import { userActions } from 'entities/User';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,6 +17,8 @@ export const Navbar: FC<NavbarProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation();
     const [isAuthModalOpen, setIsAuthModalOpen] = React.useState(false);
+    const authData = useSelector(getAuthData);
+    const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
         setIsAuthModalOpen(false);
@@ -27,6 +28,33 @@ export const Navbar: FC<NavbarProps> = (props) => {
         setIsAuthModalOpen(true);
     };
 
+    const onLogout = () => {
+        dispatch(userActions.logout());
+    };
+
+    const isAuth = !!authData?.username;
+    const userActionBtn = isAuth ? (
+        <Button
+            theme={ThemeButton.CLEAR_INVERTED}
+            onClick={onLogout}
+        >
+            {t('exit')}
+        </Button>
+    ) : (
+        <Button
+            theme={ThemeButton.CLEAR_INVERTED}
+            onClick={onOpenModal}
+        >
+            {t('enter')}
+        </Button>
+    );
+
+    useEffect(() => {
+        if (isAuthModalOpen && authData?.username) {
+            onCloseModal();
+        }
+    }, [authData, isAuthModalOpen, onCloseModal]);
+
     return (
         <div className={cn(s.navbar, [className])}>
             <LoginModal
@@ -34,12 +62,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
                 onClose={onCloseModal}
             />
             <div className={cn(s.links)}>
-                <Button
-                    theme={ThemeButton.CLEAR_INVERTED}
-                    onClick={onOpenModal}
-                >
-                    {t('enter')}
-                </Button>
+                {userActionBtn}
             </div>
         </div>
     );

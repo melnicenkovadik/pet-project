@@ -52,3 +52,10 @@
 .size_xl {
     font: var(--font-xl);
 }
+
+.disabled {
+    cursor: not-allowed;
+    color: var(--disabled-color);
+    border-color: var(--disabled-color);
+    opacity: 0.5;
+}

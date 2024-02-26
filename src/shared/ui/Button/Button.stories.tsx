@@ -67,3 +67,45 @@ SquareSizeXl.args = {
     square: true,
     size: ButtonSize.XL,
 };
+// disabled
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'Text',
+    disabled: true,
+};
+// disabled
+export const DisabledClear = Template.bind({});
+DisabledClear.args = {
+    children: 'Text',
+    theme: ThemeButton.CLEAR,
+    disabled: true,
+};
+// disabled
+export const DisabledClearInverted = Template.bind({});
+DisabledClearInverted.args = {
+    children: 'Text',
+    theme: ThemeButton.CLEAR_INVERTED,
+    disabled: true,
+};
+// disabled
+export const DisabledOutline = Template.bind({});
+DisabledOutline.args = {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    disabled: true,
+};
+// disabled
+export const DisabledOutlineDark = Template.bind({});
+DisabledOutlineDark.args = {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    disabled: true,
+};
+
+export const DisabledSquare = Template.bind({});
+DisabledSquare.args = {
+    children: '>',
+    theme: ThemeButton.OUTLINE,
+    square: true,
+    disabled: true,
+};

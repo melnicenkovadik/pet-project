@@ -1,11 +1,20 @@
 {
   "AboutUs": "AboutUs",
   "aboutPage": "aboutPage",
+  "authForm": {
+    "login": "login",
+    "password": "password",
+    "title": "title",
+    "username": "username"
+  },
   "cancel": "cancel",
   "decrement": "decrement",
   "enter": "enter",
   "enterPassword": "enterPassword",
   "enterUsername": "enterUsername",
+  "error": "error",
+  "error)": "error)",
+  "exit": "exit",
   "increment": "increment",
   "login": "login",
   "mainPage": "mainPage",
@@ -16,6 +25,7 @@
   "ok": "ok",
   "openModal": "openModal",
   "pageNotFound": "pageNotFound",
+  "profile": "profile",
   "refreshPage": "refreshPage",
   "somethingWrong": "somethingWrong",
   "throw error": "throw error",
@@ -24,5 +34,6 @@
   "Введите пароль": "Введите пароль",
   "Войти": "Войти",
   "Главная": "Главная",
-  "О сайте": "О сайте"
+  "О сайте": "О сайте",
+  "Форма авторизации": "Форма авторизации"
 }

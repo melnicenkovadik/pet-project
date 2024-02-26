@@ -1,0 +1,60 @@
+.ErrorMsg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    overflow: hidden;
+
+    &__visible {
+        opacity: 1;
+        height: 100%;
+        min-height: 10px;
+        width: 100%;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    &__hidden {
+        opacity: 0;
+        height: 0;
+        width: 100%;
+        min-height: 10px;
+        visibility: hidden;
+        transform: translateY(-100%) scale(0.5);
+    }
+
+    > * {
+        > * {
+            color: #ff525f !important;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+
+        &__visible {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+            min-height: 20px;
+        }
+
+        &__hidden {
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            min-height: 0;
+        }
+    }
+}

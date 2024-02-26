@@ -11,4 +11,15 @@
 .loginBtn {
     margin-top: 15px;
     margin-left: auto;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
 }

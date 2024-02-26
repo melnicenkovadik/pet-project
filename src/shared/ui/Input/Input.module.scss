@@ -5,6 +5,8 @@
 .placeholder {
     margin-right: 5px;
     position: relative;
+    opacity: 0.5;
+    white-space: nowrap;
 
     span {
         color: var(--primary-color);
@@ -14,6 +16,42 @@
         padding-top: 1px;
         position: relative;
         display: inline-block;
+    }
+}
+
+.placeholderFocused {
+    opacity: 1;
+}
+
+.placeholderWithValue {
+    opacity: 1;
+}
+
+.placeholderDisabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(147 147 147 / 51%);
+    position: relative;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.inputWrapperFocused {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.inputWrapperDisabled {
+    border-bottom: 1px solid rgb(147 147 147 / 51%);
+    cursor: not-allowed;
+
+    input {
+        cursor: not-allowed;
+        opacity: 0.5;
     }
 }
 

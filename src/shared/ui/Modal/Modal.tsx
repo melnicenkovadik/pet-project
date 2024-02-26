@@ -1,9 +1,13 @@
-import { cn } from 'shared/lib/classNames/classNames';
 import React, {
-    ReactNode, useCallback, useEffect, useRef, useState,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
+import { cn } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -76,7 +80,10 @@ export const Modal = (props: ModalProps) => {
     }
     return (
         <Portal>
-            <div className={cn(cls.Modal, mods, [className])}>
+            <div className={cn(cls.Modal, mods, [className], {
+                [cls.dark]: theme === Theme.DARK,
+            })}
+            >
                 <div className={cls.overlay} onClick={closeHandler}>
                     {
                         isOpen ? (
