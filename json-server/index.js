@@ -1,5 +1,5 @@
 // PORT is in .env file
-const PORT = 8080;
+const PORT = 8000;
 
 const fs = require('fs');
 const jsonServer = require('json-server');
@@ -9,13 +9,8 @@ const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
-server.use(jsonServer.bodyParser);
-
-// Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
-server.use(async (req, res, next) => {
-    await new Promise((res) => {
-        setTimeout(res, 300);
-    });
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Credentials', 'true');
     next();
 });
 
@@ -60,7 +55,8 @@ server.use((req, res, next) => {
 
     next();
 });
-server.use(jsonServer.defaults({}));
+server.use(jsonServer.bodyParser);
+server.use(jsonServer.defaults({ noCors: true}));
 server.use(router);
 
 // запуск сервера

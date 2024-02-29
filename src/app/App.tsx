@@ -13,9 +13,6 @@ const App = () => {
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
-        return () => {
-            dispatch(userActions.clearAuthData());
-        };
     }, [dispatch]);
 
     return (

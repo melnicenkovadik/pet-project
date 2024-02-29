@@ -7,16 +7,14 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { Input } from 'shared/ui/Input/Input';
 import { Text } from 'shared/ui/Text/Text';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice';
-import {
-    getLoginError,
-    getLoginIsLoading,
-    getLoginPassword,
-    getLoginUsername,
-} from 'features/AuthByUsername/model/selector/getLoginState';
 import { Loader, LoaderSizes } from 'shared/ui/Loader/Loader';
-import { loginByUserName } from '../../model/services/loginByUserName';
 
+import { loginActions, loginReducer } from '../../model/slice';
+import { getLoginIsLoading } from '../../model/selector/getLoginIsLoading';
+import { getLoginError } from '../../model/selector/getLoginError';
+import { getLoginUsername } from '../../model/selector/getLoginUsername';
+import { getLoginPassword } from '../../model/selector/getLoginPassword';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
@@ -56,7 +54,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(() => {
-        dispatch(loginByUserName({
+        dispatch(loginByUsername({
             username,
             password,
         }));
