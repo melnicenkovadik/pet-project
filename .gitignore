@@ -5,3 +5,8 @@ node_modules
 .loki/report.html
 .loki/report.json
 
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env

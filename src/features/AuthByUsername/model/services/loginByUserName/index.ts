@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { User, userActions } from 'entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { SERVER_URL } from 'shared/const/server';
 
 interface LoginByUserName {
     username: string;
@@ -14,27 +16,21 @@ export const loginByUserName = createAsyncThunk<User, LoginByUserName, {
 }>(
     'login/loginByUserName',
     async (authData, thunkAPI) => {
+        console.log('authData', authData);
         try {
-            // axios
-            //                 .post('http://localhost:8000/login', {
-            //                     username: authData.username,
-            //                     password: authData.password,
-            //                 });
-            const response = await fetch('http://localhost:8000/login', {
-                method: 'POST',
-                body: JSON.stringify({
+            const response = await axios
+                .post('http://localhost:8080/login', {
                     username: authData.username,
                     password: authData.password,
-                }),
-            });
-            if (!response.ok) {
-                throw new Error('Server response is not ok');
-            }
-            const data = await response.json();
-            if (!data) {
-                throw new Error('Server response is empty');
-            }
+                }, {
+                    withCredentials: true,
+                    headers: {
+                        Authorization: 'Bearer',
+                    },
+                });
 
+            const { data } = response;
+            console.log('Auth data', data);
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
             thunkAPI.dispatch(userActions.setAuthData(data));
             return data;
